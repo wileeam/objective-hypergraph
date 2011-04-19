@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Objective-HyperGraph' target in the 'Objective-HyperGraph' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif

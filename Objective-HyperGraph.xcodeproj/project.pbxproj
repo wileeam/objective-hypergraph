@@ -1,0 +1,394 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2853996A135E633300B2A330 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28539969135E633300B2A330 /* Foundation.framework */; };
+		28539975135E633300B2A330 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28539974135E633300B2A330 /* UIKit.framework */; };
+		28539976135E633300B2A330 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28539969135E633300B2A330 /* Foundation.framework */; };
+		28539978135E633300B2A330 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28539977135E633300B2A330 /* CoreGraphics.framework */; };
+		2853997B135E633300B2A330 /* libObjective-HyperGraph.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28539966135E633300B2A330 /* libObjective-HyperGraph.a */; };
+		28539981135E633300B2A330 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2853997F135E633300B2A330 /* InfoPlist.strings */; };
+		28539984135E633300B2A330 /* Objective_HyperGraphTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 28539983135E633300B2A330 /* Objective_HyperGraphTests.h */; };
+		28539986135E633300B2A330 /* Objective_HyperGraphTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 28539985135E633300B2A330 /* Objective_HyperGraphTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		28539979135E633300B2A330 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2853995D135E633300B2A330 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28539965135E633300B2A330;
+			remoteInfo = "Objective-HyperGraph";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		28539966135E633300B2A330 /* libObjective-HyperGraph.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libObjective-HyperGraph.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28539969135E633300B2A330 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		2853996D135E633300B2A330 /* Objective-HyperGraph-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Objective-HyperGraph-Prefix.pch"; sourceTree = "<group>"; };
+		28539973135E633300B2A330 /* Objective-HyperGraphTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Objective-HyperGraphTests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		28539974135E633300B2A330 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		28539977135E633300B2A330 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		2853997E135E633300B2A330 /* Objective-HyperGraphTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Objective-HyperGraphTests-Info.plist"; sourceTree = "<group>"; };
+		28539980135E633300B2A330 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		28539982135E633300B2A330 /* Objective-HyperGraphTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Objective-HyperGraphTests-Prefix.pch"; sourceTree = "<group>"; };
+		28539983135E633300B2A330 /* Objective_HyperGraphTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Objective_HyperGraphTests.h; sourceTree = "<group>"; };
+		28539985135E633300B2A330 /* Objective_HyperGraphTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Objective_HyperGraphTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		28539963135E633300B2A330 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2853996A135E633300B2A330 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2853996F135E633300B2A330 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28539975135E633300B2A330 /* UIKit.framework in Frameworks */,
+				28539976135E633300B2A330 /* Foundation.framework in Frameworks */,
+				28539978135E633300B2A330 /* CoreGraphics.framework in Frameworks */,
+				2853997B135E633300B2A330 /* libObjective-HyperGraph.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2853995B135E633300B2A330 = {
+			isa = PBXGroup;
+			children = (
+				2853996B135E633300B2A330 /* Objective-HyperGraph */,
+				2853997C135E633300B2A330 /* Objective-HyperGraphTests */,
+				28539968135E633300B2A330 /* Frameworks */,
+				28539967135E633300B2A330 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		28539967135E633300B2A330 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				28539966135E633300B2A330 /* libObjective-HyperGraph.a */,
+				28539973135E633300B2A330 /* Objective-HyperGraphTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		28539968135E633300B2A330 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28539969135E633300B2A330 /* Foundation.framework */,
+				28539974135E633300B2A330 /* UIKit.framework */,
+				28539977135E633300B2A330 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2853996B135E633300B2A330 /* Objective-HyperGraph */ = {
+			isa = PBXGroup;
+			children = (
+				2853996C135E633300B2A330 /* Supporting Files */,
+			);
+			path = "Objective-HyperGraph";
+			sourceTree = "<group>";
+		};
+		2853996C135E633300B2A330 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2853996D135E633300B2A330 /* Objective-HyperGraph-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2853997C135E633300B2A330 /* Objective-HyperGraphTests */ = {
+			isa = PBXGroup;
+			children = (
+				28539983135E633300B2A330 /* Objective_HyperGraphTests.h */,
+				28539985135E633300B2A330 /* Objective_HyperGraphTests.m */,
+				2853997D135E633300B2A330 /* Supporting Files */,
+			);
+			path = "Objective-HyperGraphTests";
+			sourceTree = "<group>";
+		};
+		2853997D135E633300B2A330 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2853997E135E633300B2A330 /* Objective-HyperGraphTests-Info.plist */,
+				2853997F135E633300B2A330 /* InfoPlist.strings */,
+				28539982135E633300B2A330 /* Objective-HyperGraphTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		28539964135E633300B2A330 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		28539965135E633300B2A330 /* Objective-HyperGraph */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28539989135E633300B2A330 /* Build configuration list for PBXNativeTarget "Objective-HyperGraph" */;
+			buildPhases = (
+				28539962135E633300B2A330 /* Sources */,
+				28539963135E633300B2A330 /* Frameworks */,
+				28539964135E633300B2A330 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Objective-HyperGraph";
+			productName = "Objective-HyperGraph";
+			productReference = 28539966135E633300B2A330 /* libObjective-HyperGraph.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		28539972135E633300B2A330 /* Objective-HyperGraphTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2853998C135E633300B2A330 /* Build configuration list for PBXNativeTarget "Objective-HyperGraphTests" */;
+			buildPhases = (
+				2853996E135E633300B2A330 /* Sources */,
+				2853996F135E633300B2A330 /* Frameworks */,
+				28539970135E633300B2A330 /* Resources */,
+				28539971135E633300B2A330 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2853997A135E633300B2A330 /* PBXTargetDependency */,
+			);
+			name = "Objective-HyperGraphTests";
+			productName = "Objective-HyperGraphTests";
+			productReference = 28539973135E633300B2A330 /* Objective-HyperGraphTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2853995D135E633300B2A330 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 28539960135E633300B2A330 /* Build configuration list for PBXProject "Objective-HyperGraph" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 2853995B135E633300B2A330;
+			productRefGroup = 28539967135E633300B2A330 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				28539965135E633300B2A330 /* Objective-HyperGraph */,
+				28539972135E633300B2A330 /* Objective-HyperGraphTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		28539970135E633300B2A330 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28539981135E633300B2A330 /* InfoPlist.strings in Resources */,
+				28539984135E633300B2A330 /* Objective_HyperGraphTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		28539971135E633300B2A330 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		28539962135E633300B2A330 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2853996E135E633300B2A330 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28539986135E633300B2A330 /* Objective_HyperGraphTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2853997A135E633300B2A330 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 28539965135E633300B2A330 /* Objective-HyperGraph */;
+			targetProxy = 28539979135E633300B2A330 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2853997F135E633300B2A330 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28539980135E633300B2A330 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		28539987135E633300B2A330 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		28539988135E633300B2A330 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Release;
+		};
+		2853998A135E633300B2A330 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/Objective_HyperGraph.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Objective-HyperGraph/Objective-HyperGraph-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2853998B135E633300B2A330 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/Objective_HyperGraph.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Objective-HyperGraph/Objective-HyperGraph-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2853998D135E633300B2A330 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Objective-HyperGraphTests/Objective-HyperGraphTests-Prefix.pch";
+				INFOPLIST_FILE = "Objective-HyperGraphTests/Objective-HyperGraphTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		2853998E135E633300B2A330 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Objective-HyperGraphTests/Objective-HyperGraphTests-Prefix.pch";
+				INFOPLIST_FILE = "Objective-HyperGraphTests/Objective-HyperGraphTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"-framework",
+					SenTestingKit,
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		28539960135E633300B2A330 /* Build configuration list for PBXProject "Objective-HyperGraph" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28539987135E633300B2A330 /* Debug */,
+				28539988135E633300B2A330 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28539989135E633300B2A330 /* Build configuration list for PBXNativeTarget "Objective-HyperGraph" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2853998A135E633300B2A330 /* Debug */,
+				2853998B135E633300B2A330 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		2853998C135E633300B2A330 /* Build configuration list for PBXNativeTarget "Objective-HyperGraphTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2853998D135E633300B2A330 /* Debug */,
+				2853998E135E633300B2A330 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2853995D135E633300B2A330 /* Project object */;
+}

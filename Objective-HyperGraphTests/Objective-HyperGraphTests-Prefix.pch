@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Objective-HyperGraphTests' target in the 'Objective-HyperGraphTests' project
+//
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+#endif
