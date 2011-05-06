@@ -1,5 +1,5 @@
 /*
- * Objective_HyperGraphTests.h
+ * Vertex.h
  *
  * Copyright (C) 2011, Guillermo Rodriguez-Cano
  * All rights reserved.
@@ -27,28 +27,26 @@
  *
  */
 
-#import "Objective_HyperGraphTests.h"
+
+#import <Foundation/Foundation.h>
+
+#import "NSString+UUID.h"
+#import "VertexProtocol.h"
 
 
-@implementation Objective_HyperGraphTests
-
-- (void)setUp
-{
-    [super setUp];
+/*
+ * Simple vertex/node representation class
+ *
+ * If not inheriting from this class, implementing the protocol should be
+ * mandatory
+ */
+@interface Vertex : NSObject <VertexProtocol> {
     
-    // Set-up code here.
-}
+    /*
+     * Simple UUID (GUID) string attribute
+     */
+    NSString *_uuid;
 
-- (void)tearDown
-{
-    // Tear-down code here.
-    
-    [super tearDown];
-}
-
-- (void)testExample
-{
-    STFail(@"Unit tests are not implemented yet in Objective-HyperGraphTests");
-}
+} // Vertex{}
 
 @end

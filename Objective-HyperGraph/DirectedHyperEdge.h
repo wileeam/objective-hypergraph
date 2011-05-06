@@ -1,5 +1,5 @@
 /*
- * Objective_HyperGraphTests.h
+ * HyperEdge.h
  *
  * Copyright (C) 2011, Guillermo Rodriguez-Cano
  * All rights reserved.
@@ -27,28 +27,36 @@
  *
  */
 
-#import "Objective_HyperGraphTests.h"
+#import <Foundation/Foundation.h>
+
+#import "DirectedHyperEdgeProtocol.h"
+
+#import "Vertex.h"
+#import "HyperEdge.h"
 
 
-@implementation Objective_HyperGraphTests
+/*
+ * Simple directed link/edge representation class
+ *
+ * If not inheriting from this class, implementing the protocol should be
+ * mandatory
+ */
+@interface DirectedHyperEdge : HyperEdge <DirectedHyperEdgeProtocol>{
 
-- (void)setUp
-{
-    [super setUp];
+    /*
+     * Set of hyper-edge source vertices
+     *
+     * TODO: Array, Set? Which one is better? Does it matter?
+     */
+    NSMutableSet *_source;
     
-    // Set-up code here.
-}
+    /*
+     * Set of hyper-edge target vertices
+     *
+     * TODO: Array, Set? Which one is better? Does it matter?
+     */    
+    NSMutableSet *_target;
 
-- (void)tearDown
-{
-    // Tear-down code here.
-    
-    [super tearDown];
-}
-
-- (void)testExample
-{
-    STFail(@"Unit tests are not implemented yet in Objective-HyperGraphTests");
-}
+} //DirectedHyperEdge{}
 
 @end

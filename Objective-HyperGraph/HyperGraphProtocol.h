@@ -39,27 +39,27 @@
 - (HyperEdge *)addEdgeFromVertex:(Vertex *)vertex;
 - (HyperEdge *)addEdgeFromVertices:(NSArray *)vertices;
 
-- (Vertex *)addVertex:(Vertex *)vertex;
-- (NSArray *)addVertices:(NSArray *)vertices;
+- (BOOL)addVertex:(Vertex *)vertex;
+- (BOOL)addVertices:(NSArray *)vertices;
 
-- (HyperEdge *)removeEdge:(HyperEdge *)edge;
-- (NSArray *)removeEdges:(NSArray *)edges;
+- (BOOL)removeEdge:(HyperEdge *)edge;
+- (BOOL)removeEdges:(NSArray *)edges;
 
-- (Vertex *)removeVertex:(Vertex *)vertex;
-- (NSArray *)removeVertices:(NSArray *)vertices;
+- (BOOL)removeVertex:(Vertex *)vertex;
+- (BOOL)removeVertices:(NSArray *)vertices;
 
-- (NSArray *)getEdges;
-- (NSArray *)getEdgesConnectingVertex:(Vertex *)vertex;
-- (NSArray *)getEdgesConnectingVertices:(NSArray *)vertices;
+- (NSSet *)getEdges;
+- (NSSet *)getEdgesConnectingVertex:(Vertex *)vertex;
+- (NSSet *)getEdgesConnectingVertices:(NSArray *)vertices;
 
 - (BOOL)containsVertex:(Vertex *)vertex;
 - (BOOL)containsEdge:(HyperEdge *)edge;
 
-- (NSArray *)getConnectedVertices;
-- (NSArray *)getDisconnectedVertices;
+- (NSSet *)getConnectedVertices;
+- (NSSet *)getDisconnectedVertices;
 
 - (BOOL)areAdjacent:(NSArray *)vertices;
-- (NSArray *)getAdjacent:(Vertex *)vertex;
+- (NSSet *)getAdjacent:(Vertex *)vertex;
 
 - (NSUInteger *)countVertices;
 - (NSUInteger *)countEdges;

@@ -1,5 +1,5 @@
 /*
- * Objective_HyperGraphTests.h
+ * Vertex.m
  *
  * Copyright (C) 2011, Guillermo Rodriguez-Cano
  * All rights reserved.
@@ -27,28 +27,37 @@
  *
  */
 
-#import "Objective_HyperGraphTests.h"
+
+#import "Vertex.h"
 
 
-@implementation Objective_HyperGraphTests
+@implementation Vertex
 
-- (void)setUp
+#pragma mark - Initialisation and memory management
+
+- (id)init
 {
-    [super setUp];
+
+    // Parent initialisation's check and adjacent matrix's population
+	if ((self = [super init]) != nil) {
+        _uuid = [NSString stringWithUUID];
+    }
     
-    // Set-up code here.
-}
-
-- (void)tearDown
-{
-    // Tear-down code here.
+    // Return myself!
+    return self;
     
-    [super tearDown];
-}
+} // init()
 
-- (void)testExample
+- (void)dealloc
 {
-    STFail(@"Unit tests are not implemented yet in Objective-HyperGraphTests");
-}
+    
+    [_uuid release];
+    
+    [super dealloc];
+    
+} // dealloc()
+
+
+#pragma mark - Vertex protocol implementation
 
 @end

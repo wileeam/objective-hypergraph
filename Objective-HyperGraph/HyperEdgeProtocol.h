@@ -32,20 +32,23 @@
 
 #import "Vertex.h"
 
+
 @protocol HyperEdgeProtocol <NSObject>
 
-- (Vertex *)addVertex:(Vertex *)vertex;
-- (NSArray *)addVertices:(NSArray *)vertices;
+- (BOOL)addVertex:(Vertex *)vertex;
+- (BOOL)addVertices:(NSArray *)vertices;
 
-- (Vertex *)removeVertex:(Vertex *)vertex;
-- (NSArray *)removeVertices:(NSArray *)vertices;
+- (BOOL)removeVertex:(Vertex *)vertex;
+- (BOOL)removeVertices:(NSArray *)vertices;
 
 - (BOOL)connectsVertex:(Vertex *)vertex;
 - (BOOL)connectsVertices:(NSArray *)vertices;
 
-- (NSArray *)getVertices;
-- (NSArray *)getOtherVertices:(NSArray *)vertices;
+- (NSSet *)getVertices;
+- (NSSet *)getOtherVerticesExcludingVertex:(Vertex *)vertex;
+- (NSSet *)getOtherVerticesExcludingVertices:(NSArray *)vertices;
 
-- (void)destroy;
+- (BOOL)hasVertex:(Vertex *)vertex;
+- (BOOL)hasVertices:(NSArray *)vertices;
 
 @end

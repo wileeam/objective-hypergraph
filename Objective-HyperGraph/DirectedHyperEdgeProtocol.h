@@ -32,32 +32,32 @@
 
 #import "Vertex.h"
 
+
 @protocol DirectedHyperEdgeProtocol <NSObject>
 
-- (Vertex *)addSourceVertex:(Vertex *)vertex;
-- (NSArray *)addSourceVertices:(NSArray *)vertices;
+- (BOOL)addSourceVertex:(Vertex *)vertex;
+- (BOOL)addSourceVertices:(NSArray *)vertices;
 
-- (Vertex *)addTargetVertex:(Vertex *)vertex;
-- (NSArray *)addTargetVertices:(NSArray *)vertices;
+- (BOOL)addTargetVertex:(Vertex *)vertex;
+- (BOOL)addTargetVertices:(NSArray *)vertices;
 
-- (Vertex *)addSourceAndTargetVertices:(NSArray *)sourceVertices:(NSArray *)targetVertices;
+- (BOOL)addSourceAndTargetVertices:(NSArray *)sourceVertices:(NSArray *)targetVertices;
 
-- (Vertex *)removeSourceVertex:(Vertex *)vertex;
-- (NSArray *)removeSourceVertices:(NSArray *)vertices;
+- (BOOL)removeSourceVertex:(Vertex *)vertex;
+- (BOOL)removeSourceVertices:(NSArray *)vertices;
 
-- (Vertex *)removeTargetVertex:(Vertex *)vertex;
-- (NSArray *)addTargetVertices:(NSArray *)vertices;
+- (BOOL)removeTargetVertex:(Vertex *)vertex;
+- (BOOL)removeTargetVertices:(NSArray *)vertices;
 
-- (Vertex *)removeSourceAndTargetVertices:(NSArray *)sourceVertices:(NSArray *)targetVertices;
+- (BOOL)removeSourceAndTargetVertices:(NSArray *)sourceVertices:(NSArray *)targetVertices;
 
-- (NSArray *)getOtherSourceVerticesAsVertex:(Vertex *)vertex;
-- (NSArray *)getOtherSourceVerticesAsVertices:(NSArray *)vertices;
+- (NSSet *)getSourceVertices;
+- (NSSet *)getOtherSourceVerticesExcludingVertex:(Vertex *)vertex;
+- (NSSet *)getOtherSourceVerticesExcludingVertices:(NSArray *)vertices;
 
-- (NSArray *)getOtherTargetVerticesAsVertex:(Vertex *)vertex;
-- (NSArray *)getOtherTargetVerticesAsVertices:(NSArray *)vertices;
-
-- (NSArray *)getSourceVertices;
-- (NSArray *)getTargetVertices;
+- (NSSet *)getTargetVertices;
+- (NSSet *)getOtherTargetVerticesExcludingVertex:(Vertex *)vertex;
+- (NSSet *)getOtherTargetVerticesExcludingVertices:(NSArray *)vertices;
 
 - (BOOL)hasSource;
 - (BOOL)hasSourceWithVertex:(Vertex *)vertex;

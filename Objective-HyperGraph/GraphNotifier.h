@@ -1,5 +1,5 @@
 /*
- * Objective_HyperGraphTests.h
+ * GraphNotifier.h
  *
  * Copyright (C) 2011, Guillermo Rodriguez-Cano
  * All rights reserved.
@@ -27,28 +27,24 @@
  *
  */
 
-#import "Objective_HyperGraphTests.h"
+#import <Foundation/Foundation.h>
+
+#import "NSString+UUID.h"
+#import "Vertex.h"
+#import "HyperEdge.h"
 
 
-@implementation Objective_HyperGraphTests
-
-- (void)setUp
-{
-    [super setUp];
+@interface GraphNotifier : NSObject {
+    NSString *_uuid;
     
-    // Set-up code here.
+    CFMutableDictionaryRef _vertices;
+    CFMutableDictionaryRef _edges;
 }
 
-- (void)tearDown
-{
-    // Tear-down code here.
-    
-    [super tearDown];
-}
+- (void)addIndex:(HyperEdge *)edge withVertex:(Vertex *)vertex;
+- (void)addIndex:(HyperEdge *)edge withVertices:(NSArray *)vertices;
 
-- (void)testExample
-{
-    STFail(@"Unit tests are not implemented yet in Objective-HyperGraphTests");
-}
+- (void)removeIndex:(HyperEdge *)edge withVertex:(Vertex *)vertex;
+- (void)removeIndex:(HyperEdge *)edge withVertices:(NSArray *)vertices;
 
 @end

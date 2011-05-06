@@ -1,5 +1,5 @@
 /*
- * Objective_HyperGraphTests.h
+ * HyperEdge.h
  *
  * Copyright (C) 2011, Guillermo Rodriguez-Cano
  * All rights reserved.
@@ -27,28 +27,33 @@
  *
  */
 
-#import "Objective_HyperGraphTests.h"
+
+#import <Foundation/Foundation.h>
+
+#import "NSString+UUID.h"
+#import "HyperEdgeProtocol.h"
 
 
-@implementation Objective_HyperGraphTests
-
-- (void)setUp
-{
-    [super setUp];
+/*
+ * Simple unidrected link/edge representation class
+ *
+ * If not inheriting from this class, implementing the protocol should be
+ * mandatory
+ */
+@interface HyperEdge : NSObject <HyperEdgeProtocol> {
     
-    // Set-up code here.
-}
-
-- (void)tearDown
-{
-    // Tear-down code here.
+    /*
+     * Simple UUID (GUID) string attribute
+     */    
+    NSString *_uuid;
     
-    [super tearDown];
-}
-
-- (void)testExample
-{
-    STFail(@"Unit tests are not implemented yet in Objective-HyperGraphTests");
-}
+    /*
+     * An undirected hyper-edge is a set of vertices
+     *
+     * TODO: Array, Set? Which one is better? Does it matter?
+     */
+    NSMutableSet *_vertices;
+    
+} // HyperEdge{}
 
 @end

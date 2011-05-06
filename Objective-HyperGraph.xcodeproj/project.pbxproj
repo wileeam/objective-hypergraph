@@ -7,6 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		280958DB135E653900EBF958 /* DirectedHyperEdge.h in Headers */ = {isa = PBXBuildFile; fileRef = 280958C9135E653900EBF958 /* DirectedHyperEdge.h */; };
+		280958DC135E653900EBF958 /* DirectedHyperEdge.m in Sources */ = {isa = PBXBuildFile; fileRef = 280958CA135E653900EBF958 /* DirectedHyperEdge.m */; };
+		280958DD135E653900EBF958 /* DirectedHyperEdgeProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 280958CB135E653900EBF958 /* DirectedHyperEdgeProtocol.h */; };
+		280958E0135E653900EBF958 /* HyperEdge.h in Headers */ = {isa = PBXBuildFile; fileRef = 280958CE135E653900EBF958 /* HyperEdge.h */; };
+		280958E1135E653900EBF958 /* HyperEdge.m in Sources */ = {isa = PBXBuildFile; fileRef = 280958CF135E653900EBF958 /* HyperEdge.m */; };
+		280958E2135E653900EBF958 /* HyperEdgeProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 280958D0135E653900EBF958 /* HyperEdgeProtocol.h */; };
+		280958E5135E653900EBF958 /* HyperGraphProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 280958D3135E653900EBF958 /* HyperGraphProtocol.h */; };
+		280958E8135E653900EBF958 /* NSString+UUID.h in Headers */ = {isa = PBXBuildFile; fileRef = 280958D6135E653900EBF958 /* NSString+UUID.h */; };
+		280958E9135E653900EBF958 /* NSString+UUID.m in Sources */ = {isa = PBXBuildFile; fileRef = 280958D7135E653900EBF958 /* NSString+UUID.m */; };
+		280958EA135E653900EBF958 /* Vertex.h in Headers */ = {isa = PBXBuildFile; fileRef = 280958D8135E653900EBF958 /* Vertex.h */; };
+		280958EB135E653900EBF958 /* Vertex.m in Sources */ = {isa = PBXBuildFile; fileRef = 280958D9135E653900EBF958 /* Vertex.m */; };
+		280958EC135E653900EBF958 /* VertexProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 280958DA135E653900EBF958 /* VertexProtocol.h */; };
 		2853996A135E633300B2A330 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28539969135E633300B2A330 /* Foundation.framework */; };
 		28539975135E633300B2A330 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28539974135E633300B2A330 /* UIKit.framework */; };
 		28539976135E633300B2A330 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28539969135E633300B2A330 /* Foundation.framework */; };
@@ -28,6 +40,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		280958C9135E653900EBF958 /* DirectedHyperEdge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectedHyperEdge.h; sourceTree = "<group>"; };
+		280958CA135E653900EBF958 /* DirectedHyperEdge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DirectedHyperEdge.m; sourceTree = "<group>"; };
+		280958CB135E653900EBF958 /* DirectedHyperEdgeProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DirectedHyperEdgeProtocol.h; sourceTree = "<group>"; };
+		280958CC135E653900EBF958 /* GraphNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GraphNotifier.h; sourceTree = "<group>"; };
+		280958CD135E653900EBF958 /* GraphNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GraphNotifier.m; sourceTree = "<group>"; };
+		280958CE135E653900EBF958 /* HyperEdge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyperEdge.h; sourceTree = "<group>"; };
+		280958CF135E653900EBF958 /* HyperEdge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyperEdge.m; sourceTree = "<group>"; };
+		280958D0135E653900EBF958 /* HyperEdgeProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyperEdgeProtocol.h; sourceTree = "<group>"; };
+		280958D1135E653900EBF958 /* HyperGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyperGraph.h; sourceTree = "<group>"; };
+		280958D2135E653900EBF958 /* HyperGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HyperGraph.m; sourceTree = "<group>"; };
+		280958D3135E653900EBF958 /* HyperGraphProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HyperGraphProtocol.h; sourceTree = "<group>"; };
+		280958D4135E653900EBF958 /* MultiHyperGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiHyperGraph.h; sourceTree = "<group>"; };
+		280958D5135E653900EBF958 /* MultiHyperGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiHyperGraph.m; sourceTree = "<group>"; };
+		280958D6135E653900EBF958 /* NSString+UUID.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+UUID.h"; sourceTree = "<group>"; };
+		280958D7135E653900EBF958 /* NSString+UUID.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+UUID.m"; sourceTree = "<group>"; };
+		280958D8135E653900EBF958 /* Vertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Vertex.h; sourceTree = "<group>"; };
+		280958D9135E653900EBF958 /* Vertex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Vertex.m; sourceTree = "<group>"; };
+		280958DA135E653900EBF958 /* VertexProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VertexProtocol.h; sourceTree = "<group>"; };
 		28539966135E633300B2A330 /* libObjective-HyperGraph.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libObjective-HyperGraph.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		28539969135E633300B2A330 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2853996D135E633300B2A330 /* Objective-HyperGraph-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Objective-HyperGraph-Prefix.pch"; sourceTree = "<group>"; };
@@ -64,6 +94,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2813D9A5135F30E600BAA35E /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				280958DA135E653900EBF958 /* VertexProtocol.h */,
+				280958D0135E653900EBF958 /* HyperEdgeProtocol.h */,
+				280958CB135E653900EBF958 /* DirectedHyperEdgeProtocol.h */,
+				280958D3135E653900EBF958 /* HyperGraphProtocol.h */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		2813D9A7135F315400BAA35E /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				280958D8135E653900EBF958 /* Vertex.h */,
+				280958D9135E653900EBF958 /* Vertex.m */,
+				280958CE135E653900EBF958 /* HyperEdge.h */,
+				280958CF135E653900EBF958 /* HyperEdge.m */,
+				280958C9135E653900EBF958 /* DirectedHyperEdge.h */,
+				280958CA135E653900EBF958 /* DirectedHyperEdge.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
 		2853995B135E633300B2A330 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +150,14 @@
 		2853996B135E633300B2A330 /* Objective-HyperGraph */ = {
 			isa = PBXGroup;
 			children = (
+				2813D9A5135F30E600BAA35E /* Protocols */,
+				2813D9A7135F315400BAA35E /* Core */,
+				280958CC135E653900EBF958 /* GraphNotifier.h */,
+				280958CD135E653900EBF958 /* GraphNotifier.m */,
+				280958D1135E653900EBF958 /* HyperGraph.h */,
+				280958D2135E653900EBF958 /* HyperGraph.m */,
+				280958D4135E653900EBF958 /* MultiHyperGraph.h */,
+				280958D5135E653900EBF958 /* MultiHyperGraph.m */,
 				2853996C135E633300B2A330 /* Supporting Files */,
 			);
 			path = "Objective-HyperGraph";
@@ -104,6 +166,8 @@
 		2853996C135E633300B2A330 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				280958D6135E653900EBF958 /* NSString+UUID.h */,
+				280958D7135E653900EBF958 /* NSString+UUID.m */,
 				2853996D135E633300B2A330 /* Objective-HyperGraph-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -136,6 +200,14 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				280958DB135E653900EBF958 /* DirectedHyperEdge.h in Headers */,
+				280958DD135E653900EBF958 /* DirectedHyperEdgeProtocol.h in Headers */,
+				280958E0135E653900EBF958 /* HyperEdge.h in Headers */,
+				280958E2135E653900EBF958 /* HyperEdgeProtocol.h in Headers */,
+				280958E5135E653900EBF958 /* HyperGraphProtocol.h in Headers */,
+				280958E8135E653900EBF958 /* NSString+UUID.h in Headers */,
+				280958EA135E653900EBF958 /* Vertex.h in Headers */,
+				280958EC135E653900EBF958 /* VertexProtocol.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +306,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				280958DC135E653900EBF958 /* DirectedHyperEdge.m in Sources */,
+				280958E1135E653900EBF958 /* HyperEdge.m in Sources */,
+				280958E9135E653900EBF958 /* NSString+UUID.m in Sources */,
+				280958EB135E653900EBF958 /* Vertex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +455,7 @@
 				2853998B135E633300B2A330 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		2853998C135E633300B2A330 /* Build configuration list for PBXNativeTarget "Objective-HyperGraphTests" */ = {
 			isa = XCConfigurationList;
@@ -387,6 +464,7 @@
 				2853998E135E633300B2A330 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
