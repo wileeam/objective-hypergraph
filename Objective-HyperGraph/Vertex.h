@@ -40,7 +40,7 @@
  * If not inheriting from this class, implementing the protocol should be
  * mandatory
  */
-@interface Vertex : NSObject <VertexProtocol> {
+@interface Vertex : NSObject <VertexProtocol, NSCopying> {
     
     /*
      * Simple UUID (GUID) string attribute
@@ -48,5 +48,7 @@
     NSString *_uuid;
 
 } // Vertex{}
+
+- (NSString *)getUUID;
 
 @end

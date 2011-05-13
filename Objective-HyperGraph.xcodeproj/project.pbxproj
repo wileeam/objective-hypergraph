@@ -19,6 +19,8 @@
 		280958EA135E653900EBF958 /* Vertex.h in Headers */ = {isa = PBXBuildFile; fileRef = 280958D8135E653900EBF958 /* Vertex.h */; };
 		280958EB135E653900EBF958 /* Vertex.m in Sources */ = {isa = PBXBuildFile; fileRef = 280958D9135E653900EBF958 /* Vertex.m */; };
 		280958EC135E653900EBF958 /* VertexProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 280958DA135E653900EBF958 /* VertexProtocol.h */; };
+		28177EF1137395F600D44C71 /* HyperGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = 280958D1135E653900EBF958 /* HyperGraph.h */; };
+		28177EF21373960400D44C71 /* HyperGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = 280958D2135E653900EBF958 /* HyperGraph.m */; };
 		2853996A135E633300B2A330 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28539969135E633300B2A330 /* Foundation.framework */; };
 		28539975135E633300B2A330 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28539974135E633300B2A330 /* UIKit.framework */; };
 		28539976135E633300B2A330 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28539969135E633300B2A330 /* Foundation.framework */; };
@@ -114,6 +116,8 @@
 				280958CF135E653900EBF958 /* HyperEdge.m */,
 				280958C9135E653900EBF958 /* DirectedHyperEdge.h */,
 				280958CA135E653900EBF958 /* DirectedHyperEdge.m */,
+				280958D1135E653900EBF958 /* HyperGraph.h */,
+				280958D2135E653900EBF958 /* HyperGraph.m */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -154,8 +158,6 @@
 				2813D9A7135F315400BAA35E /* Core */,
 				280958CC135E653900EBF958 /* GraphNotifier.h */,
 				280958CD135E653900EBF958 /* GraphNotifier.m */,
-				280958D1135E653900EBF958 /* HyperGraph.h */,
-				280958D2135E653900EBF958 /* HyperGraph.m */,
 				280958D4135E653900EBF958 /* MultiHyperGraph.h */,
 				280958D5135E653900EBF958 /* MultiHyperGraph.m */,
 				2853996C135E633300B2A330 /* Supporting Files */,
@@ -200,6 +202,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28177EF1137395F600D44C71 /* HyperGraph.h in Headers */,
 				280958DB135E653900EBF958 /* DirectedHyperEdge.h in Headers */,
 				280958DD135E653900EBF958 /* DirectedHyperEdgeProtocol.h in Headers */,
 				280958E0135E653900EBF958 /* HyperEdge.h in Headers */,
@@ -306,6 +309,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28177EF21373960400D44C71 /* HyperGraph.m in Sources */,
 				280958DC135E653900EBF958 /* DirectedHyperEdge.m in Sources */,
 				280958E1135E653900EBF958 /* HyperEdge.m in Sources */,
 				280958E9135E653900EBF958 /* NSString+UUID.m in Sources */,

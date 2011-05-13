@@ -1,5 +1,5 @@
 /*
- * HyperEdge.h
+ * DirectedHyperEdge.h
  *
  * Copyright (C) 2011, Guillermo Rodriguez-Cano
  * All rights reserved.
@@ -29,6 +29,7 @@
 
 #import <Foundation/Foundation.h>
 
+#import "NSString+UUID.h"
 #import "DirectedHyperEdgeProtocol.h"
 
 #import "Vertex.h"
@@ -41,7 +42,7 @@
  * If not inheriting from this class, implementing the protocol should be
  * mandatory
  */
-@interface DirectedHyperEdge : HyperEdge <DirectedHyperEdgeProtocol>{
+@interface DirectedHyperEdge : HyperEdge <DirectedHyperEdgeProtocol, NSCopying> {
 
     /*
      * Set of hyper-edge source vertices
@@ -58,5 +59,7 @@
     NSMutableSet *_target;
 
 } //DirectedHyperEdge{}
+
+- (NSString *)getUUID;
 
 @end

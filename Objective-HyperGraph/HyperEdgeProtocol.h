@@ -51,4 +51,8 @@
 - (BOOL)hasVertex:(Vertex *)vertex;
 - (BOOL)hasVertices:(NSArray *)vertices;
 
+- (BOOL)isEqual:(id)object;
+
+- (NSUInteger)countVertices;
+
 @end

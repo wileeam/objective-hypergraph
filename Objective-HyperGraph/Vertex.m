@@ -57,7 +57,35 @@
     
 } // dealloc()
 
+- (NSString *)getUUID
+{
+    
+    return _uuid;
+    
+} // getUUID()
+
+
+#pragma mark - NSCopying protocol implementation
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    Vertex *objectCopy = [[Vertex allocWithZone:zone] init];
+    // Copy over all instance variables from self to objectCopy.
+    // Use deep copies for all strong pointers, shallow copies for weak.
+    return objectCopy;
+    
+} // copyWithZone()
+
 
 #pragma mark - Vertex protocol implementation
+
+- (BOOL)isEqual:(id)object
+{
+    
+    Vertex *otherVertex = (Vertex *) object;
+    
+    return [self getUUID] == [otherVertex getUUID];
+    
+} // isEqual()
 
 @end

@@ -1,14 +1,35 @@
-//
-//  DirectedHyperEdge.m
-//  Keiko
-//
-//  Created by Guillermo on 19/04/11.
-//  Copyright 2011 Guillermo Rodríguez Cano. All rights reserved.
-//
+/*
+ * DirectedHyperEdge.m
+ *
+ * Copyright (C) 2011, Guillermo Rodriguez-Cano
+ * All rights reserved.
+ *
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ *
+ *
+ * Contacting the author:
+ *   Guillermo Rodriguez-Cano:  wileeam@acm.org
+ *
+ * @version $Id$
+ *
+ */
+
 
 #import "DirectedHyperEdge.h"
 
-#import "NSString+UUID.h"
 
 @implementation DirectedHyperEdge
 
@@ -38,6 +59,25 @@
     [super dealloc];
     
 } // dealloc()
+
+- (NSString *)getUUID
+{
+    
+    return _uuid;
+    
+} // getUUID()
+
+
+#pragma mark - NSCopying protocol implementation
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    Vertex *objectCopy = [[Vertex allocWithZone:zone] init];
+    // Copy over all instance variables from self to objectCopy.
+    // Use deep copies for all strong pointers, shallow copies for weak.
+    return objectCopy;
+    
+} // copyWithZone()
 
 
 #pragma mark - HyperEdge protocol implementation
@@ -431,5 +471,56 @@
     return TRUE;    
     
 } // hasTargetWithVertices()
+
+- (BOOL)isEqual:(id)object
+{
+    if (object == nil) {
+        return FALSE;
+    }
+    
+    if (![object isKindOfClass:[DirectedHyperEdge class]]) {
+        return FALSE;
+    }
+    
+    DirectedHyperEdge *otherEdge = (DirectedHyperEdge *) object;
+    
+    if ([otherEdge countVertices] != [self countVertices]) {
+        return FALSE;
+    }
+    if ([otherEdge countSourceVertices] != [self countSourceVertices]) {
+        return FALSE;
+    }
+    if ([otherEdge countTargetVertices] != [self countTargetVertices]) {
+        return FALSE;
+    }    
+    
+    for (Vertex *v in [otherEdge getSourceVertices]) {
+        if (![_source containsObject:v]) {
+            return FALSE;
+        }
+    }
+    for (Vertex *v in [otherEdge getTargetVertices]) {
+        if (![_target containsObject:v]) {
+            return FALSE;
+        }
+    }
+    
+    return TRUE;
+    
+} // isEqual()
+
+- (NSUInteger)countSourceVertices
+{
+
+    return [_source count];
+    
+} // countSourceVertices()
+
+- (NSUInteger)countTargetVertices
+{
+    
+    return [_target count];
+    
+} // countTargetVertices()
 
 @end

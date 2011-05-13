@@ -48,21 +48,29 @@
 - (BOOL)removeVertex:(Vertex *)vertex;
 - (BOOL)removeVertices:(NSArray *)vertices;
 
-- (NSSet *)getEdges;
-- (NSSet *)getEdgesConnectingVertex:(Vertex *)vertex;
-- (NSSet *)getEdgesConnectingVertices:(NSArray *)vertices;
+- (NSArray *)getEdges;
+- (NSArray *)getEdgesConnectingVertices:(NSArray *)vertices;
+- (NSArray *)getEdgesUsingVertex:(Vertex *)vertex;
+- (NSArray *)getEdgesUsingVertices:(NSArray *)vertices;
 
-- (BOOL)containsVertex:(Vertex *)vertex;
-- (BOOL)containsEdge:(HyperEdge *)edge;
+- (NSArray *)getVertices;
 
-- (NSSet *)getConnectedVertices;
-- (NSSet *)getDisconnectedVertices;
+- (BOOL)hasVertex:(Vertex *)vertex;
+- (BOOL)hasVertices:(NSArray *)vertices;
+- (BOOL)hasEdge:(HyperEdge *)edge;
+- (BOOL)hasEdges:(NSArray *)edges;
+
+- (NSArray *)getConnectedVertices;
+- (NSArray *)getDisconnectedVertices;
 
 - (BOOL)areAdjacent:(NSArray *)vertices;
-- (NSSet *)getAdjacent:(Vertex *)vertex;
+- (NSArray *)getAdjacentToVertex:(Vertex *)vertex;
+- (NSArray *)getAdjacentToVertices:(NSArray *)vertices;
 
-- (NSUInteger *)countVertices;
-- (NSUInteger *)countEdges;
+//- (BOOL)isEqual:(id)object;
+
+- (NSUInteger)countVertices;
+- (NSUInteger)countEdges;
 
 - (BOOL)isMultiGraph;
 

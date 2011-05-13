@@ -67,4 +67,9 @@
 - (BOOL)hasTargetWithVertex:(Vertex *)vertex;
 - (BOOL)hasTargetWithVertices:(NSArray *)vertices;
 
+- (BOOL)isEqual:(id)object;
+
+- (NSUInteger)countSourceVertices;
+- (NSUInteger)countTargetVertices;
+
 @end

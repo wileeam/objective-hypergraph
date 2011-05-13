@@ -49,6 +49,28 @@
     
 } // init()
 
+- (id)initWithVertex:(Vertex *)vertex
+{
+    
+    if ([self init] != nil) {
+        [self addVertex:vertex];
+    }
+    
+    return self;
+    
+} // initWithVertex()
+
+- (id)initWithVertices:(NSArray *)vertices
+{
+    
+    if ([self init] != nil) {
+        [self addVertices:vertices];
+    }
+    
+    return self;
+    
+} // initWithVertices()
+
 - (void)dealloc
 {
     
@@ -58,6 +80,25 @@
     [super dealloc];
     
 } // dealloc()
+
+- (NSString *)getUUID
+{
+    
+    return _uuid;
+    
+} // getUUID()
+
+
+#pragma mark - NSCopying protocol implementation
+
+- (id)copyWithZone:(NSZone *)zone
+{
+    Vertex *objectCopy = [[Vertex allocWithZone:zone] init];
+    // Copy over all instance variables from self to objectCopy.
+    // Use deep copies for all strong pointers, shallow copies for weak.
+    return objectCopy;
+    
+} // copyWithZone()
 
 
 #pragma mark - HyperEdge protocol implementation
@@ -218,6 +259,9 @@
     if (vertices == nil) {
         return FALSE;
     }
+    if ([_vertices count] != [vertices count]) {
+        return FALSE;
+    }
     
     for (Vertex *v in vertices) {
         if (![_vertices containsObject:v]) {
@@ -228,5 +272,38 @@
     return TRUE;
     
 } // hasVertices()
+
+- (BOOL)isEqual:(id)object
+{
+    if (object == nil) {
+        return FALSE;
+    }
+    
+    if (![object isKindOfClass:[HyperEdge class]]) {
+        return FALSE;
+    }
+    
+    HyperEdge *otherEdge = (HyperEdge *) object;
+    
+    if ([otherEdge countVertices] != [self countVertices]) {
+        return FALSE;
+    }
+    
+    for (Vertex *v in [otherEdge getVertices]) {
+        if (![_vertices containsObject:v]) {
+            return FALSE;
+        }
+    }
+    
+    return TRUE;
+    
+} // isEqual()
+
+- (NSUInteger)countVertices
+{
+    
+    return [_vertices count];
+    
+} // countVertices()
 
 @end

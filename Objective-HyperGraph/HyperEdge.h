@@ -40,7 +40,7 @@
  * If not inheriting from this class, implementing the protocol should be
  * mandatory
  */
-@interface HyperEdge : NSObject <HyperEdgeProtocol> {
+@interface HyperEdge : NSObject <HyperEdgeProtocol, NSCopying> {
     
     /*
      * Simple UUID (GUID) string attribute
@@ -55,5 +55,10 @@
     NSMutableSet *_vertices;
     
 } // HyperEdge{}
+
+- (id)initWithVertex:(Vertex *)vertex;
+- (id)initWithVertices:(NSArray *)vertices;
+
+- (NSString *)getUUID;
 
 @end

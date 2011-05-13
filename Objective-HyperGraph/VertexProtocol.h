@@ -33,4 +33,6 @@
 
 @protocol VertexProtocol <NSObject>
 
+- (BOOL)isEqual:(id)object;
+
 @end
