@@ -1,5 +1,5 @@
 /*
- * GraphNotifier.h
+ * HyperEdgeTestCase.h
  *
  * Copyright (C) 2011, Guillermo Rodriguez-Cano
  * All rights reserved.
@@ -27,24 +27,16 @@
  *
  */
 
-#import <Foundation/Foundation.h>
+#import <SenTestingKit/SenTestingKit.h>
 
-#import "NSString+UUID.h"
 #import "Vertex.h"
 #import "HyperEdge.h"
 
 
-@interface GraphNotifier : NSObject {
-    NSString *_uuid;
+@interface HyperEdgeTestCase : SenTestCase {
     
-    CFMutableDictionaryRef _vertices;
-    CFMutableDictionaryRef _edges;
-}
-
-- (void)addIndex:(HyperEdge *)edge withVertex:(Vertex *)vertex;
-- (void)addIndex:(HyperEdge *)edge withVertices:(NSArray *)vertices;
-
-- (void)removeIndex:(HyperEdge *)edge withVertex:(Vertex *)vertex;
-- (void)removeIndex:(HyperEdge *)edge withVertices:(NSArray *)vertices;
+    HyperEdge *edge;
+    
+} // HyperEdgeTestCase{}
 
 @end
