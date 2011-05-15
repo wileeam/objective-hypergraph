@@ -48,11 +48,13 @@
 - (NSSet *)getOtherVerticesExcludingVertex:(Vertex *)vertex;
 - (NSSet *)getOtherVerticesExcludingVertices:(NSArray *)vertices;
 
+- (BOOL)connectsVertex:(Vertex *)vertex;
 - (BOOL)hasVertex:(Vertex *)vertex;
+- (BOOL)connectsVertices:(NSArray *)vertices;
 - (BOOL)hasVertices:(NSArray *)vertices;
 
-- (BOOL)isEqual:(id)object;
-
 - (NSUInteger)countVertices;
+
+- (BOOL)isEqual:(id)object;
 
 @end

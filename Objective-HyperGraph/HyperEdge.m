@@ -33,6 +33,9 @@
 
 @implementation HyperEdge
 
+#pragma mark - Properties synthesization
+@synthesize name=_name;
+
 #pragma mark - Initialisation and memory management
 
 - (id)init
@@ -74,7 +77,9 @@
 - (void)dealloc
 {
     
+    [_name release];
     [_uuid release];
+    
     [_vertices release];
     
     [super dealloc];
@@ -88,12 +93,30 @@
     
 } // getUUID()
 
+#pragma mark - System overriden implementation
+
+- (NSString *)description
+{
+    
+    NSMutableString *string = [NSMutableString string];
+    
+    // First print UUID's directed hyper-edge (and its condition)
+    [string appendString:[NSString stringWithFormat:@"Undirected hyper-edge [%@] (%@)\n", _name, [self getUUID]]];
+    // Second print the vertices (source and target)
+    for (Vertex *v in _vertices) {
+        [string appendString:[NSString stringWithFormat:@"\t%@\n", v]];
+    }
+    
+    return string;
+    
+} // description()
+
 
 #pragma mark - NSCopying protocol implementation
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    Vertex *objectCopy = [[Vertex allocWithZone:zone] init];
+    HyperEdge *objectCopy = [[HyperEdge allocWithZone:zone] init];
     // Copy over all instance variables from self to objectCopy.
     // Use deep copies for all strong pointers, shallow copies for weak.
     return objectCopy;
@@ -181,16 +204,6 @@
 
 } // removeVertices()
 
-- (BOOL) connectsVertex:(Vertex *)vertex
-{
-    return false;
-}
-
-- (BOOL) connectsVertices:(NSArray *)vertices
-{
-    return false;
-}
-
 - (NSSet *)getVertices
 {
 
@@ -209,6 +222,10 @@
 {
 
     if (vertex == nil) {
+        return nil;
+    }
+    
+    if (![self hasVertex:vertex]) {
         return nil;
     }
 
@@ -232,6 +249,10 @@
     if ([vertices count] == 0) {
         return nil;
     }
+    
+    if (![self hasVertices:vertices]) {
+        return nil;
+    }
 
     NSMutableSet *result = [NSMutableSet setWithSet:_vertices];
     for (Vertex *v in vertices) {
@@ -241,6 +262,13 @@
     return result;
     
 } // getOtherVerticesExcludingVertices()
+
+- (BOOL)connectsVertex:(Vertex *)vertex
+{
+    
+    return [self hasVertex:vertex];
+    
+} // connectsVertex()
 
 - (BOOL)hasVertex:(Vertex *)vertex
 {
@@ -253,13 +281,20 @@
     
 } // hasVertex()
 
+- (BOOL)connectsVertices:(NSArray *)vertices
+{
+    
+    return [self hasVertices:vertices];
+    
+} // connectsVertices()
+
 - (BOOL)hasVertices:(NSArray *)vertices
 {
     
     if (vertices == nil) {
         return FALSE;
     }
-    if ([_vertices count] != [vertices count]) {
+    if ([vertices count] == 0) {
         return FALSE;
     }
     
@@ -273,8 +308,16 @@
     
 } // hasVertices()
 
+- (NSUInteger)countVertices
+{
+    
+    return [_vertices count];
+    
+} // countVertices()
+
 - (BOOL)isEqual:(id)object
 {
+    
     if (object == nil) {
         return FALSE;
     }
@@ -282,7 +325,7 @@
     if (![object isKindOfClass:[HyperEdge class]]) {
         return FALSE;
     }
-    
+
     HyperEdge *otherEdge = (HyperEdge *) object;
     
     if ([otherEdge countVertices] != [self countVertices]) {
@@ -298,12 +341,5 @@
     return TRUE;
     
 } // isEqual()
-
-- (NSUInteger)countVertices
-{
-    
-    return [_vertices count];
-    
-} // countVertices()
 
 @end

@@ -33,6 +33,9 @@
 
 @implementation Vertex
 
+#pragma mark - Properties synthesization
+@synthesize name=_name;
+
 #pragma mark - Initialisation and memory management
 
 - (id)init
@@ -51,6 +54,7 @@
 - (void)dealloc
 {
     
+    [_name release];
     [_uuid release];
     
     [super dealloc];
@@ -63,6 +67,20 @@
     return _uuid;
     
 } // getUUID()
+
+#pragma mark - System overriden implementation
+
+- (NSString *)description
+{
+    
+    NSMutableString *string = [NSMutableString string];
+    
+    // Print UUID's vertex
+    [string appendString:[NSString stringWithFormat:@"Vertex [%@] (%@)\n", _name, [self getUUID]]];
+    
+    return string;
+    
+} // description()
 
 
 #pragma mark - NSCopying protocol implementation
@@ -81,6 +99,14 @@
 
 - (BOOL)isEqual:(id)object
 {
+    
+    if (object == nil) {
+        return FALSE;
+    }
+    
+    if (![object isKindOfClass:[Vertex class]]) {
+        return FALSE;
+    }    
     
     Vertex *otherVertex = (Vertex *) object;
     

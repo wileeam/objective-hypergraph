@@ -48,31 +48,113 @@
     
 } // init()
 
-- (void)dealloc
+- (id)initWithSourceVertex:(Vertex *)vertex
 {
     
-    [_source dealloc];
-    [_target dealloc];
+    if ([self init] != nil) {
+        [self addSourceVertex:vertex];
+    }
     
-    [_uuid dealloc];
+    return self;
+    
+} // initWithSourceVertex()
+
+- (id)initWithSourceVertices:(NSArray *)vertices
+{
+    
+    if ([self init] != nil) {
+        [self addSourceVertices:vertices];
+    }
+    
+    return self;
+    
+} // initWithSourceVertices()
+
+- (id)initWithTargetVertex:(Vertex *)vertex
+{
+    
+    if ([self init] != nil) {
+        [self addTargetVertex:vertex];
+    }
+    
+    return self;
+    
+} // initWithTargetVertex()
+
+- (id)initWithTargetVertices:(NSArray *)vertices
+{
+    
+    if ([self init] != nil) {
+        [self addTargetVertices:vertices];
+    }
+    
+    return self;
+    
+} // initWithTargetVertices()
+
+- (id)initWithSourceAndTargetVertex:(Vertex *)source:(Vertex *)target
+{
+    
+    if ([self init] != nil) {
+        [self addSourceAndTargetVertices:[NSArray arrayWithObject:source] :[NSArray arrayWithObject:target]];
+    }
+    
+    return self;
+    
+} // initWithSourceAndTargetVertex()
+
+- (id)initWithSourceAndTargetVertices:(NSArray *)source:(NSArray *)target
+{
+    
+    if ([self init] != nil) {
+        [self addSourceAndTargetVertices:source :target];
+    }
+    
+    return self;
+    
+} // initWithSourceAndTargetVertices()
+
+
+- (void)dealloc
+{
+
+    [_source release];
+    [_target release];
     
     [super dealloc];
     
 } // dealloc()
 
-- (NSString *)getUUID
+
+#pragma mark - System overriden implementation
+
+- (NSString *)description
 {
+
+    NSMutableString *string = [NSMutableString string];
+
+    // First print UUID's directed hyper-edge (and its condition)
+    [string appendString:[NSString stringWithFormat:@"Directed hyper-edge [%@] (%@)\n", self.name, [self getUUID]]];
+    // Second print the vertices (source and target)
+    [string appendString:[NSString stringWithFormat:@"\tSource vertices\n"]];
+    for (Vertex *v in _source) {
+        [string appendString:[NSString stringWithFormat:@"\t\t%@\n", v]];
+    }
+    [string appendString:[NSString stringWithFormat:@"\tTarget vertices\n"]];    
+    for (Vertex *v in _target) {
+        [string appendString:[NSString stringWithFormat:@"\t\t%@\n", v]];        
+    }
     
-    return _uuid;
+    return string;
     
-} // getUUID()
+} // description()
 
 
 #pragma mark - NSCopying protocol implementation
 
 - (id)copyWithZone:(NSZone *)zone
 {
-    Vertex *objectCopy = [[Vertex allocWithZone:zone] init];
+    DirectedHyperEdge *objectCopy = [[DirectedHyperEdge allocWithZone:zone] init];
     // Copy over all instance variables from self to objectCopy.
     // Use deep copies for all strong pointers, shallow copies for weak.
     return objectCopy;
@@ -80,7 +162,7 @@
 } // copyWithZone()
 
 
-#pragma mark - HyperEdge protocol implementation
+#pragma mark - DirectedHyperEdge protocol implementation
 
 - (BOOL)addSourceVertex:(Vertex *)vertex
 {
@@ -472,8 +554,23 @@
     
 } // hasTargetWithVertices()
 
+- (NSUInteger)countSourceVertices
+{
+    
+    return [_source count];
+    
+} // countSourceVertices()
+
+- (NSUInteger)countTargetVertices
+{
+    
+    return [_target count];
+    
+} // countTargetVertices()
+
 - (BOOL)isEqual:(id)object
 {
+    
     if (object == nil) {
         return FALSE;
     }
@@ -509,18 +606,99 @@
     
 } // isEqual()
 
-- (NSUInteger)countSourceVertices
+
+#pragma mark - HyperEdge proocol overriden implementation
+
+- (id)initWithVertex:(Vertex *)vertex
 {
 
-    return [_source count];
-    
-} // countSourceVertices()
+    @throw [NSException exceptionWithName:@"OperationNotAllowedException" reason:@"Method usage not allowed" userInfo:nil];
+        
+} // initWithVertex()
 
-- (NSUInteger)countTargetVertices
+- (id)initWithVertices:(NSArray *)vertices
+{
+
+    @throw [NSException exceptionWithName:@"OperationNotAllowedException" reason:@"Method usage not allowed" userInfo:nil];
+    
+} // initWithVertices()
+
+- (BOOL)addVertex:(Vertex *)vertex
 {
     
-    return [_target count];
+    @throw [NSException exceptionWithName:@"OperationNotAllowedException" reason:@"Method usage not allowed" userInfo:nil];
     
-} // countTargetVertices()
+} // addVertex()
+
+- (BOOL)addVertices:(NSArray *)vertices
+{
+    
+    @throw [NSException exceptionWithName:@"OperationNotAllowedException" reason:@"Method usage not allowed" userInfo:nil];
+    
+} // addVertices()
+
+- (BOOL)removeVertex:(Vertex *)vertex
+{
+    
+    if (vertex == nil) {
+        return FALSE;
+    }
+    
+    return [self removeSourceVertex:vertex] || [self removeTargetVertex:vertex];
+    
+} // removeVertex()
+
+- (BOOL)removeVertices:(NSArray *)vertices
+{
+    
+    if (vertices == nil) {
+        return FALSE;
+    }
+    
+    if ([vertices count] == 0) {
+        return FALSE;
+    }
+    
+    return [self removeSourceVertices:vertices] || [self removeTargetVertices:vertices];
+    
+} // removeVertices()
+
+- (BOOL)hasVertex:(Vertex *)vertex
+{
+    
+    if (vertex == nil) {
+        return FALSE;
+    }
+    
+    return [_source containsObject:vertex] || [_target containsObject:vertex];
+    
+} // hasVertex()
+
+- (BOOL)hasVertices:(NSArray *)vertices
+{
+    
+    if (vertices == nil) {
+        return FALSE;
+    }
+    if ([vertices count] == 0) {
+        return FALSE;
+    }
+    
+    for (Vertex *v in vertices) {
+        if (!([_source containsObject:v] || [_target containsObject:v])) {
+            return FALSE;
+        }
+    }
+    
+    return TRUE;
+    
+} // hasVertices()
+
+- (NSUInteger)countVertices
+{
+    
+    return [_source count] + [_target count];
+    
+} // countVertices()
 
 @end

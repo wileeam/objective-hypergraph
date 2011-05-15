@@ -56,9 +56,15 @@
     
 } // HyperEdge{}
 
+#pragma mark - Properties
+// Short identifying name attribute
+@property (nonatomic, retain) NSString *name;
+
+#pragma mark - Initialiasing methods
 - (id)initWithVertex:(Vertex *)vertex;
 - (id)initWithVertices:(NSArray *)vertices;
 
+#pragma mark - Custom methods (testing this instead of a readonly property)
 - (NSString *)getUUID;
 
 @end

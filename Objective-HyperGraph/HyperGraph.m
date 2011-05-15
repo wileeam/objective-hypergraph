@@ -89,7 +89,7 @@
     }
     
     // Second create edge since it didn't exist
-    HyperEdge *edge = [[HyperEdge alloc] initWithVertex:vertex];
+    HyperEdge *edge = [[[HyperEdge alloc] initWithVertex:vertex] autorelease];
     
     // Third add both the vertex and the edge to corresponding dictionaries
     if (edgesForVertex == nil) {
@@ -131,7 +131,7 @@
     }
 
     // Second create edge since it didn't exist
-    HyperEdge *edge = [[HyperEdge alloc] initWithVertices:vertices];
+    HyperEdge *edge = [[[HyperEdge alloc] initWithVertices:vertices] autorelease];
 
     // Third add both the vertices and the edge to corresponding dictionaries    
     for (Vertex *v in vertices) {
@@ -213,7 +213,6 @@
     [_edges removeObjectForKey:edge];
 
     [edge release];
-    [verticesForEdge release];
     
     return TRUE;
     
@@ -619,6 +618,7 @@
 - (BOOL)isMultiGraph
 {
     // TODO
+    // Current implementation does check for duplicate edges, and so by definiton a multigraph is not possible
     return FALSE;
     
 } // isMultiGraph()

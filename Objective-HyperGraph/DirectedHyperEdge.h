@@ -27,6 +27,7 @@
  *
  */
 
+
 #import <Foundation/Foundation.h>
 
 #import "NSString+UUID.h"
@@ -60,6 +61,12 @@
 
 } //DirectedHyperEdge{}
 
-- (NSString *)getUUID;
+#pragma mark - Initialiasing methods
+- (id)initWithSourceVertex:(Vertex *)vertex;
+- (id)initWithSourceVertices:(NSArray *)vertices;
+- (id)initWithTargetVertex:(Vertex *)vertex;
+- (id)initWithTargetVertices:(NSArray *)vertices;
+- (id)initWithSourceAndTargetVertex:(Vertex *)source:(Vertex *)target;
+- (id)initWithSourceAndTargetVertices:(NSArray *)source:(NSArray *)target;
 
 @end

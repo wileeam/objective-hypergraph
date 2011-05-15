@@ -30,10 +30,11 @@
 
 #import <Foundation/Foundation.h>
 
+#import "HyperEdgeProtocol.h"
 #import "Vertex.h"
 
 
-@protocol DirectedHyperEdgeProtocol <NSObject>
+@protocol DirectedHyperEdgeProtocol <HyperEdgeProtocol>
 
 - (BOOL)addSourceVertex:(Vertex *)vertex;
 - (BOOL)addSourceVertices:(NSArray *)vertices;
@@ -67,9 +68,9 @@
 - (BOOL)hasTargetWithVertex:(Vertex *)vertex;
 - (BOOL)hasTargetWithVertices:(NSArray *)vertices;
 
-- (BOOL)isEqual:(id)object;
-
 - (NSUInteger)countSourceVertices;
 - (NSUInteger)countTargetVertices;
+
+- (BOOL)isEqual:(id)object;
 
 @end
