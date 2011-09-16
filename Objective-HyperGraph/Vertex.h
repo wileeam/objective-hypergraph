@@ -41,19 +41,12 @@
  * mandatory
  */
 @interface Vertex : NSObject <VertexProtocol, NSCopying> {
-    
-    /*
-     * Simple UUID (GUID) string attribute
-     */
-    NSString *_uuid;
-    
+
 } // Vertex{}
 
 #pragma mark - Properties
 // Short identifying name attribute
-@property (nonatomic, retain) NSString *name;
-
-#pragma mark - Custom methods (testing this instead of a readonly property)
-- (NSString *)getUUID;
+@property (nonatomic, readonly, strong) NSString *uuid;
+@property (nonatomic, strong) NSString *name;
 
 @end

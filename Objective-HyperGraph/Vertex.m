@@ -35,6 +35,7 @@
 
 #pragma mark - Properties synthesization
 @synthesize name=_name;
+@synthesize uuid=_uuid;
 
 #pragma mark - Initialisation and memory management
 
@@ -51,22 +52,6 @@
     
 } // init()
 
-- (void)dealloc
-{
-    
-    [_name release];
-    [_uuid release];
-    
-    [super dealloc];
-    
-} // dealloc()
-
-- (NSString *)getUUID
-{
-    
-    return _uuid;
-    
-} // getUUID()
 
 #pragma mark - System overriden implementation
 
@@ -76,7 +61,7 @@
     NSMutableString *string = [NSMutableString string];
     
     // Print UUID's vertex
-    [string appendString:[NSString stringWithFormat:@"Vertex [%@] (%@)\n", _name, [self getUUID]]];
+    [string appendString:[NSString stringWithFormat:@"Vertex [%@] (%@)\n", _name, self.uuid ]];
     
     return string;
     
@@ -110,7 +95,7 @@
     
     Vertex *otherVertex = (Vertex *) object;
     
-    return [self getUUID] == [otherVertex getUUID];
+    return self.uuid == otherVertex.uuid;
     
 } // isEqual()
 

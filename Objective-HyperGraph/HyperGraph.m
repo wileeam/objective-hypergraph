@@ -50,17 +50,7 @@
     
 } // init()
 
-- (void)dealloc
-{
-
-    [_vertices dealloc];
-    [_edges dealloc];
-
-    [_uuid dealloc];
-    
-    [super dealloc];
-    
-} // dealloc()
+ // dealloc()
 
 - (NSString *)getUUID
 {
@@ -89,7 +79,7 @@
     }
     
     // Second create edge since it didn't exist
-    HyperEdge *edge = [[[HyperEdge alloc] initWithVertex:vertex] autorelease];
+    HyperEdge *edge = [[HyperEdge alloc] initWithVertex:vertex];
     
     // Third add both the vertex and the edge to corresponding dictionaries
     if (edgesForVertex == nil) {
@@ -131,7 +121,7 @@
     }
 
     // Second create edge since it didn't exist
-    HyperEdge *edge = [[[HyperEdge alloc] initWithVertices:vertices] autorelease];
+    HyperEdge *edge = [[HyperEdge alloc] initWithVertices:vertices];
 
     // Third add both the vertices and the edge to corresponding dictionaries    
     for (Vertex *v in vertices) {
@@ -159,7 +149,7 @@
         return FALSE;
     }
     
-    if ([self hasVertex:vertex]) {
+    if ([self containsVertex:vertex]) {
         return FALSE;
     }
     
@@ -179,7 +169,7 @@
         return FALSE;
     }
     
-    if ([self hasVertices:vertices]) {
+    if ([self containsVertices:vertices]) {
         return FALSE;
     }
     
@@ -198,7 +188,7 @@
         return FALSE;
     }
     
-    if (![self hasEdge:edge]) {
+    if (![self containsEdge:edge]) {
         return FALSE;
     }
 
@@ -209,10 +199,8 @@
         [edgesForVertex removeObject:edge];
     }
     
-    // Second remove edge from edges dictionary and free memory
+    // Second remove edge from edges dictionary
     [_edges removeObjectForKey:edge];
-
-    [edge release];
     
     return TRUE;
     
@@ -228,7 +216,7 @@
         return FALSE;
     }
     
-    if (![self hasEdges:edges]) {
+    if (![self containsEdges:edges]) {
         return FALSE;
     }
     
@@ -241,11 +229,8 @@
             [edgesForVertex removeObject:e];
         }
 
-        // Second remove edge from edges dictionary and free memory
+        // Second remove edge from edges dictionary
         [_edges removeObjectForKey:e];
-        
-        [e release];
-        [verticesForEdge release];
     }
     
     return TRUE;
@@ -258,7 +243,7 @@
         return FALSE;
     }
     
-    if ([self hasVertex:vertex]) {
+    if ([self containsVertex:vertex]) {
         return FALSE;
     }    
     
@@ -283,7 +268,7 @@
         return FALSE;
     }
     
-    if ([self hasVertices:vertices]) {
+    if ([self containsVertices:vertices]) {
         return FALSE;
     }
     
@@ -325,7 +310,7 @@
         return nil;
     }    
     
-    if (![self hasVertices:vertices]) {
+    if (![self containsVertices:vertices]) {
         return nil;
     }
     
@@ -346,7 +331,7 @@
         return nil;
     }
     
-    if (![self hasVertex:vertex]) {
+    if (![self containsVertex:vertex]) {
         return nil;
     }
         
@@ -364,7 +349,7 @@
         return nil;
     }    
 
-    if (![self hasVertices:vertices]) {
+    if (![self containsVertices:vertices]) {
         return nil;
     }
 
@@ -392,14 +377,14 @@
 } // getVertices()
 
 
-- (BOOL)hasVertex:(Vertex *)vertex
+- (BOOL)containsVertex:(Vertex *)vertex
 {
 
     if (vertex == nil) {
         return FALSE;
     }    
     
-    NSArray *verticesInHyperGraph = [self getVertices];
+    NSSet *verticesInHyperGraph = [NSSet setWithArray:[self getVertices]];
     
     if (verticesInHyperGraph == nil) {
         return FALSE;
@@ -407,9 +392,9 @@
     
     return [verticesInHyperGraph containsObject:vertex];
     
-} // hasVertex()
+} // containsVertex()
 
-- (BOOL)hasVertices:(NSArray *)vertices
+- (BOOL)containsVertices:(NSArray *)vertices
 {
 
     if (vertices == nil) {
@@ -417,32 +402,28 @@
     }
     if ([vertices count] == 0) {
         return FALSE;
-    }    
-
-    NSArray *verticesInHyperGraph = [self getVertices];
+    }
+    
+    NSSet *verticesInHyperGraph = [NSSet setWithArray:[self getVertices]];
     
     if (verticesInHyperGraph == nil) {
         return FALSE;
-    }    
-    
-    for (Vertex *v in vertices) {
-        if (![verticesInHyperGraph containsObject:v]) {
-            return FALSE;
-        }
     }
     
-    return TRUE;    
+    NSSet *verticesSet = [NSSet setWithArray:vertices];
     
-} // hasVertices()
+    return [verticesSet isSubsetOfSet:verticesInHyperGraph];
+        
+} // containsVertices()
 
-- (BOOL)hasEdge:(HyperEdge *)edge;
+- (BOOL)containsEdge:(HyperEdge *)edge;
 {
     
     if (edge == nil) {
         return FALSE;
     }    
     
-    NSArray *edgesInHyperGraph = [self getEdges];
+    NSSet *edgesInHyperGraph = [NSSet setWithArray:[self getEdges]];
     
     if (edgesInHyperGraph == nil) {
         return FALSE;
@@ -450,9 +431,9 @@
     
     return [edgesInHyperGraph containsObject:edge];
     
-} // hasEdge()
+} // containsEdge()
 
-- (BOOL)hasEdges:(NSArray *)edges
+- (BOOL)containsEdges:(NSArray *)edges
 {
     
     if (edges == nil) {
@@ -462,21 +443,18 @@
         return FALSE;
     }    
     
-    NSArray *edgesInHyperGraph = [self getEdges];
+    NSSet *edgesInHyperGraph = [NSSet setWithArray:[self getEdges]];
     
     if (edgesInHyperGraph == nil) {
         return FALSE;
-    }    
-    
-    for (HyperEdge *e in edges) {
-        if (![edgesInHyperGraph containsObject:e]) {
-            return FALSE;
-        }
     }
     
-    return TRUE;    
+    NSSet *edgesSet = [NSSet setWithArray:edges];
     
-} // hasEdges()
+    return [edgesSet isSubsetOfSet:edgesInHyperGraph];
+  
+    
+} // containsEdges()
 
 - (NSArray *)getConnectedVertices
 {
@@ -526,7 +504,7 @@
         return FALSE;
     }
 
-    if (![self hasVertices:vertices]) {
+    if (![self containsVertices:vertices]) {
         return FALSE;
     }    
     
@@ -547,7 +525,7 @@
         return nil;
     }
     
-    if (![self hasVertex:vertex]) {
+    if (![self containsVertex:vertex]) {
         return nil;
     }    
     
@@ -579,7 +557,7 @@
         return nil;
     }
     
-    if (![self hasVertices:vertices]) {
+    if (![self containsVertices:vertices]) {
         return nil;
     }    
     
@@ -601,6 +579,49 @@
     
 } // getAdjacentToVertices()
 
+- (NSArray *)findEdgesWithVertex:(Vertex *)vertex
+{
+    
+    NSArray *verticesArray = [NSArray arrayWithObject:vertex];
+    
+    return [self findEdgesWithVertices:verticesArray];
+     
+} // findEdgesWithVertex()
+
+- (NSArray *)findEdgesWithVertices:(NSArray *)vertices
+{
+    
+    if (vertices == nil) {
+        return nil;
+    }    
+    if ([vertices count] == 0) {
+        return nil;
+    }
+    
+    // First get all edges
+    NSMutableSet *edges = [NSMutableSet setWithArray:[self getEdges]];
+    
+    // Second intersect each vertex's set of edges with set of all edges to get edges with vertices set parameter at least
+    for (Vertex *v in vertices) {
+        [edges intersectSet:[_vertices objectForKey:v]];
+    }
+    
+    // Third verify that remaining edges' vertices sets correspond with vertices' set parameter
+    if ([edges count] != 0) {
+        for (HyperEdge *e in edges) {
+            // Note that we validate that vertices set parameter is equal to each remaining edge's vertices set
+            if (![e countVertices] == [vertices count] || ![e hasVertices:vertices]) {
+                // Remove the current edge because its source vertices set is not equal to the parameter
+                [edges removeObject:e];
+            }
+        }
+    }
+    
+    // Fourth return the remaining edges which do conform with the specification
+    return [edges allObjects];
+    
+} // findEdgesWithVertices()
+
 - (NSUInteger)countVertices
 {
     
@@ -617,8 +638,9 @@
 
 - (BOOL)isMultiGraph
 {
-    // TODO
+    // TODO: Make the implementation fully multigraph-compliant
     // Current implementation does check for duplicate edges, and so by definiton a multigraph is not possible
+    // But it is interesting to note that implementation is semi-ready (so it has to be revised to be fully compliant)
     return FALSE;
     
 } // isMultiGraph()

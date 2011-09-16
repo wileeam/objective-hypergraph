@@ -55,10 +55,10 @@
 
 - (NSArray *)getVertices;
 
-- (BOOL)hasVertex:(Vertex *)vertex;
-- (BOOL)hasVertices:(NSArray *)vertices;
-- (BOOL)hasEdge:(HyperEdge *)edge;
-- (BOOL)hasEdges:(NSArray *)edges;
+- (BOOL)containsVertex:(Vertex *)vertex;
+- (BOOL)containsVertices:(NSArray *)vertices;
+- (BOOL)containsEdge:(HyperEdge *)edge;
+- (BOOL)containsEdges:(NSArray *)edges;
 
 - (NSArray *)getConnectedVertices;
 - (NSArray *)getDisconnectedVertices;
@@ -66,6 +66,9 @@
 - (BOOL)areAdjacent:(NSArray *)vertices;
 - (NSArray *)getAdjacentToVertex:(Vertex *)vertex;
 - (NSArray *)getAdjacentToVertices:(NSArray *)vertices;
+
+- (NSArray *)findEdgesWithVertex:(Vertex *)vertex;
+- (NSArray *)findEdgesWithVertices:(NSArray *)vertices;
 
 //- (BOOL)isEqual:(id)object;
 

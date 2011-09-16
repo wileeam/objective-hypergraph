@@ -60,6 +60,12 @@
 - (NSSet *)getOtherTargetVerticesExcludingVertex:(Vertex *)vertex;
 - (NSSet *)getOtherTargetVerticesExcludingVertices:(NSArray *)vertices;
 
+- (BOOL)containsVertexInSource:(Vertex *)vertex;
+- (BOOL)containsVerticesInSource:(NSArray *)vertices;
+
+- (BOOL)containsVertexInTarget:(Vertex *)vertex;
+- (BOOL)containsVerticesInTarget:(NSArray *)vertices;
+
 - (BOOL)hasSource;
 - (BOOL)hasSourceWithVertex:(Vertex *)vertex;
 - (BOOL)hasSourceWithVertices:(NSArray *)vertices;

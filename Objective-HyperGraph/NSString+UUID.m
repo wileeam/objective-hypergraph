@@ -38,11 +38,11 @@
     // Create a new UUID
     CFUUIDRef uuidObj = CFUUIDCreate(nil);
     // Get the string representation of the UUID
-    NSString *uuidString = (NSString*) CFUUIDCreateString(nil, uuidObj);
+    NSString *uuidString = (__bridge_transfer NSString*) CFUUIDCreateString(nil, uuidObj);
     
     CFRelease(uuidObj);
     
-    return [uuidString autorelease];
+    return uuidString;
     
 } // stringWithUUID()
 

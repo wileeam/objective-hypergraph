@@ -114,16 +114,27 @@
     
 } // initWithSourceAndTargetVertices()
 
-
-- (void)dealloc
+- (id)initWithSourceVertexAndTargetVertices:(Vertex *)source:(NSArray *)target
 {
 
-    [_source release];
-    [_target release];
+    if ([self init] != nil) {        
+        [self addSourceAndTargetVertices:[NSArray arrayWithObject:source]:target];
+    }
     
-    [super dealloc];
+    return self;
     
-} // dealloc()
+} // initWithSourceVertexAndTargetVertices()
+
+- (id)initWithSourceVerticesAndTargetVertex:(NSArray *)source:(Vertex *)target
+{
+    
+    if ([self init] != nil) {        
+        [self addSourceAndTargetVertices:source:[NSArray arrayWithObject:target]];
+    }
+    
+    return self;
+    
+} // initWithSourceVerticesAndTargetVertex()
 
 
 #pragma mark - System overriden implementation
@@ -134,7 +145,7 @@
     NSMutableString *string = [NSMutableString string];
 
     // First print UUID's directed hyper-edge (and its condition)
-    [string appendString:[NSString stringWithFormat:@"Directed hyper-edge [%@] (%@)\n", self.name, [self getUUID]]];
+    [string appendString:[NSString stringWithFormat:@"Directed hyper-edge [%@] (%@)\n", self.name, self.uuid]];
     // Second print the vertices (source and target)
     [string appendString:[NSString stringWithFormat:@"\tSource vertices\n"]];
     for (Vertex *v in _source) {
@@ -500,6 +511,60 @@
     
 } // getOtherTargetVerticesAsVertices()
 
+- (BOOL)containsVertexInSource:(Vertex *)vertex
+{
+
+    if (vertex == nil) {
+        return FALSE;
+    }    
+    
+    return [_source containsObject:vertex];
+    
+} // containsVertexInSource()
+
+- (BOOL)containsVerticesInSource:(NSArray *)vertices
+{
+
+    if (vertices == nil) {
+        return FALSE;
+    }
+    if ([vertices count] == 0) {
+        return FALSE;
+    }
+    
+    NSSet *verticesSet = [NSSet setWithArray:vertices];
+    
+    return [verticesSet isSubsetOfSet:[self getSourceVertices]];
+    
+} // containsVerticesInSource()
+
+- (BOOL)containsVertexInTarget:(Vertex *)vertex
+{
+    
+    if (vertex == nil) {
+        return FALSE;
+    }    
+    
+    return [_target containsObject:vertex];
+    
+} // containsVertexInTarget()
+
+- (BOOL)containsVerticesInTarget:(NSArray *)vertices;
+{
+
+    if (vertices == nil) {
+        return FALSE;
+    }
+    if ([vertices count] == 0) {
+        return FALSE;
+    }
+    
+    NSSet *verticesSet = [NSSet setWithArray:vertices];
+    
+    return [verticesSet isSubsetOfSet:[self getTargetVertices]];
+    
+} // containsVerticesInTarget()
+
 - (BOOL)hasSource
 {
     
@@ -510,20 +575,25 @@
 - (BOOL)hasSourceWithVertex:(Vertex *)vertex
 {
     
-    return [_source containsObject:vertex];
+    NSArray *vertexArray = [NSArray arrayWithObject:vertex];
+    
+    return [self hasSourceWithVertices:vertexArray];
     
 } // hasSourceWithVertex()
 
 - (BOOL)hasSourceWithVertices:(NSArray *)vertices
 {
-    
-    for (Vertex *v in vertices) {
-        if (![self hasSourceWithVertex:v]) {
-            return FALSE;
-        }
+
+    if (vertices == nil) {
+        return FALSE;
+    }
+    if ([vertices count] == 0) {
+        return FALSE;
     }
     
-    return TRUE;
+    NSSet *verticesSet = [NSSet setWithArray:vertices];
+    
+    return [verticesSet isEqualToSet:[self getSourceVertices]];    
     
 } // hasSourceWithVertices()
 
@@ -537,20 +607,25 @@
 - (BOOL)hasTargetWithVertex:(Vertex *)vertex
 {
  
-    return [_target containsObject:vertex];    
+    NSArray *vertexArray = [NSArray arrayWithObject:vertex];
+    
+    return [self hasTargetWithVertices:vertexArray];
     
 } // hasTargetWithVertex()
 
 - (BOOL)hasTargetWithVertices:(NSArray *)vertices;
 {
     
-    for (Vertex *v in vertices) {
-        if (![self hasTargetWithVertex:v]) {
-            return FALSE;
-        }
+    if (vertices == nil) {
+        return FALSE;
+    }
+    if ([vertices count] == 0) {
+        return FALSE;
     }
     
-    return TRUE;    
+    NSSet *verticesSet = [NSSet setWithArray:vertices];
+    
+    return [verticesSet isEqualToSet:[self getTargetVertices]];      
     
 } // hasTargetWithVertices()
 
@@ -607,7 +682,7 @@
 } // isEqual()
 
 
-#pragma mark - HyperEdge proocol overriden implementation
+#pragma mark - HyperEdge protocol overriden implementation
 
 - (id)initWithVertex:(Vertex *)vertex
 {
@@ -663,7 +738,7 @@
     
 } // removeVertices()
 
-- (BOOL)hasVertex:(Vertex *)vertex
+- (BOOL)containsVertex:(Vertex *)vertex
 {
     
     if (vertex == nil) {
@@ -674,7 +749,7 @@
     
 } // hasVertex()
 
-- (BOOL)hasVertices:(NSArray *)vertices
+- (BOOL)containsVertices:(NSArray *)vertices
 {
     
     if (vertices == nil) {
@@ -691,6 +766,20 @@
     }
     
     return TRUE;
+    
+} // hasVertices()
+
+- (BOOL)hasVertex:(Vertex *)vertex
+{
+    
+    @throw [NSException exceptionWithName:@"OperationNotAllowedException" reason:@"Method usage not allowed" userInfo:nil];
+    
+} // hasVertex()
+
+- (BOOL)hasVertices:(NSArray *)vertices
+{
+    
+    @throw [NSException exceptionWithName:@"OperationNotAllowedException" reason:@"Method usage not allowed" userInfo:nil];
     
 } // hasVertices()
 

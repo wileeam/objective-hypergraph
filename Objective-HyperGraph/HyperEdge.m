@@ -35,6 +35,7 @@
 
 #pragma mark - Properties synthesization
 @synthesize name=_name;
+@synthesize uuid=_uuid;
 
 #pragma mark - Initialisation and memory management
 
@@ -74,25 +75,6 @@
     
 } // initWithVertices()
 
-- (void)dealloc
-{
-    
-    [_name release];
-    [_uuid release];
-    
-    [_vertices release];
-    
-    [super dealloc];
-    
-} // dealloc()
-
-- (NSString *)getUUID
-{
-    
-    return _uuid;
-    
-} // getUUID()
-
 #pragma mark - System overriden implementation
 
 - (NSString *)description
@@ -101,7 +83,7 @@
     NSMutableString *string = [NSMutableString string];
     
     // First print UUID's directed hyper-edge (and its condition)
-    [string appendString:[NSString stringWithFormat:@"Undirected hyper-edge [%@] (%@)\n", _name, [self getUUID]]];
+    [string appendString:[NSString stringWithFormat:@"Undirected hyper-edge [%@] (%@)\n", _name, self.uuid]];
     // Second print the vertices (source and target)
     for (Vertex *v in _vertices) {
         [string appendString:[NSString stringWithFormat:@"\t%@\n", v]];
@@ -133,7 +115,7 @@
         return FALSE;
     }
     
-    if ([self hasVertex:vertex]) {
+    if ([self containsVertex:vertex]) {
         return FALSE;
     }
     
@@ -153,7 +135,7 @@
         return FALSE;
     }
     
-    if ([self hasVertices:vertices]) {
+    if ([self containsVertices:vertices]) {
         return FALSE;
     }
     
@@ -172,7 +154,7 @@
         return FALSE;
     }
     
-    if (![self hasVertex:vertex]) {
+    if (![self containsVertex:vertex]) {
         return FALSE;
     }
 
@@ -192,7 +174,7 @@
         return FALSE;
     }
     
-    if (![self hasVertices:vertices]) {
+    if (![self containsVertices:vertices]) {
         return FALSE;
     }    
 
@@ -225,7 +207,7 @@
         return nil;
     }
     
-    if (![self hasVertex:vertex]) {
+    if (![self containsVertex:vertex]) {
         return nil;
     }
 
@@ -250,7 +232,7 @@
         return nil;
     }
     
-    if (![self hasVertices:vertices]) {
+    if (![self containsVertices:vertices]) {
         return nil;
     }
 
@@ -266,11 +248,11 @@
 - (BOOL)connectsVertex:(Vertex *)vertex
 {
     
-    return [self hasVertex:vertex];
+    return [self containsVertex:vertex];
     
 } // connectsVertex()
 
-- (BOOL)hasVertex:(Vertex *)vertex
+- (BOOL)containsVertex:(Vertex *)vertex
 {
     
     if (vertex == nil) {
@@ -279,16 +261,16 @@
     
     return [_vertices containsObject:vertex];
     
-} // hasVertex()
+} // containsVertex()
 
 - (BOOL)connectsVertices:(NSArray *)vertices
 {
     
-    return [self hasVertices:vertices];
+    return [self containsVertices:vertices];
     
 } // connectsVertices()
 
-- (BOOL)hasVertices:(NSArray *)vertices
+- (BOOL)containsVertices:(NSArray *)vertices
 {
     
     if (vertices == nil) {
@@ -298,13 +280,34 @@
         return FALSE;
     }
     
-    for (Vertex *v in vertices) {
-        if (![_vertices containsObject:v]) {
-            return FALSE;
-        }
+    NSSet *verticesSet = [NSSet setWithArray:vertices];
+    
+    return [verticesSet isSubsetOfSet:[self getVertices]];
+    
+} // containsVertices()
+
+- (BOOL)hasVertex:(Vertex *)vertex
+{
+
+    NSArray *vertexArray = [NSArray arrayWithObject:vertex];
+    
+    return [self hasVertices:vertexArray];
+    
+} // hasVertex()
+
+- (BOOL)hasVertices:(NSArray *)vertices
+{
+
+    if (vertices == nil) {
+        return FALSE;
+    }
+    if ([vertices count] == 0) {
+        return FALSE;
     }
     
-    return TRUE;
+    NSSet *verticesSet = [NSSet setWithArray:vertices];
+    
+    return [verticesSet isEqualToSet:[self getVertices]];    
     
 } // hasVertices()
 
@@ -317,7 +320,7 @@
 
 - (BOOL)isEqual:(id)object
 {
-    
+
     if (object == nil) {
         return FALSE;
     }
@@ -325,7 +328,7 @@
     if (![object isKindOfClass:[HyperEdge class]]) {
         return FALSE;
     }
-
+    
     HyperEdge *otherEdge = (HyperEdge *) object;
     
     if ([otherEdge countVertices] != [self countVertices]) {

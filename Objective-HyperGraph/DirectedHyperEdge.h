@@ -68,5 +68,7 @@
 - (id)initWithTargetVertices:(NSArray *)vertices;
 - (id)initWithSourceAndTargetVertex:(Vertex *)source:(Vertex *)target;
 - (id)initWithSourceAndTargetVertices:(NSArray *)source:(NSArray *)target;
+- (id)initWithSourceVertexAndTargetVertices:(Vertex *)source:(NSArray *)target;
+- (id)initWithSourceVerticesAndTargetVertex:(NSArray *)source:(Vertex *)target;
 
 @end

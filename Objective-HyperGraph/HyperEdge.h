@@ -43,11 +43,6 @@
 @interface HyperEdge : NSObject <HyperEdgeProtocol, NSCopying> {
     
     /*
-     * Simple UUID (GUID) string attribute
-     */    
-    NSString *_uuid;
-    
-    /*
      * An undirected hyper-edge is a set of vertices
      *
      * TODO: Array, Set? Which one is better? Does it matter?
@@ -58,13 +53,11 @@
 
 #pragma mark - Properties
 // Short identifying name attribute
-@property (nonatomic, retain) NSString *name;
+@property (nonatomic, strong, readonly) NSString *uuid;
+@property (nonatomic, strong) NSString *name;
 
 #pragma mark - Initialiasing methods
 - (id)initWithVertex:(Vertex *)vertex;
 - (id)initWithVertices:(NSArray *)vertices;
-
-#pragma mark - Custom methods (testing this instead of a readonly property)
-- (NSString *)getUUID;
 
 @end

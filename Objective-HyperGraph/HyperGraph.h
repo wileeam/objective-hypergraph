@@ -59,6 +59,7 @@
     
 } // HyperGraph{}
 
+#pragma mark - Custom methods (testing this instead of a readonly property)
 - (NSString *)getUUID;
 
 @end

@@ -38,8 +38,18 @@
 
 - (DirectedHyperEdge *)addEdgeWithSourceVertex:(Vertex *)source withTargetVertex:(Vertex *)target;
 - (DirectedHyperEdge *)addEdgeWithSourceVertex:(Vertex *)source withTargetVertices:(NSArray *)target;
-- (DirectedHyperEdge *)addEdgeWithSourceVertices:(NSArray *)source withTargetVertices:(NSArray *)target;
 - (DirectedHyperEdge *)addEdgeWithSourceVertices:(NSArray *)source withTargetVertex:(Vertex *)target;
+- (DirectedHyperEdge *)addEdgeWithSourceVertices:(NSArray *)source withTargetVertices:(NSArray *)target;
+
+- (NSArray *)findEdgesWithSourceVertex:(Vertex *)source;
+- (NSArray *)findEdgesWithSourceVertices:(NSArray *)source;
+- (NSArray *)findEdgesWithTargetVertex:(Vertex *)target;
+- (NSArray *)findEdgesWithTargetVertices:(NSArray *)target;
+
+- (NSArray *)findEdgesWithSourceVertex:(Vertex *)source withTargetVertex:(Vertex *)target;
+- (NSArray *)findEdgesWithSourceVertex:(Vertex *)source withTargetVertices:(NSArray *)target;
+- (NSArray *)findEdgesWithSourceVertices:(NSArray *)source withTargetVertex:(Vertex *)target;
+- (NSArray *)findEdgesWithSourceVertices:(NSArray *)source withTargetVertices:(NSArray *)target;
 
 //- (BOOL)isEqual:(id)object;
 
