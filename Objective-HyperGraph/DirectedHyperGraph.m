@@ -103,6 +103,62 @@
 
 } // addEdgeWithSourceVertices()
 
+- (NSArray *)backwardStar:(Vertex *)vertex
+{
+    
+    if (vertex == nil) {
+        return nil;
+    }    
+    
+    // First get all edges
+    NSMutableSet *edges = [NSMutableSet setWithArray:[self getEdges]];
+    
+    // Second intersect parameter vertex's set of edges with set of all edges to get edges with source vertices at least
+    [edges intersectSet:[_vertices objectForKey:vertex]];
+    
+    // Third verify that remaining edges' target vertices sets correspond with vertices' set parameter
+    if ([edges count] != 0) {
+        for (DirectedHyperEdge *e in edges) {
+            if (![e containsVertexInTarget:vertex]) {
+                // Remove the current edge because its target vertices set does not contain the parameter vertex
+                [edges removeObject:e];
+            }
+        }
+    }
+    
+    // Fourth return the remaining edges which do conform with the specification
+    return [edges allObjects];
+    
+} // backwardStar()
+
+- (NSArray *)forwardStar:(Vertex *)vertex
+{
+    
+    if (vertex == nil) {
+        return nil;
+    }    
+    
+    // First get all edges
+    NSMutableSet *edges = [NSMutableSet setWithArray:[self getEdges]];
+    
+    // Second intersect parameter vertex's set of edges with set of all edges to get edges with source vertices at least
+    [edges intersectSet:[_vertices objectForKey:vertex]];
+    
+    // Third verify that remaining edges' source vertices sets correspond with vertices' set parameter
+    if ([edges count] != 0) {
+        for (DirectedHyperEdge *e in edges) {
+            if (![e containsVertexInSource:vertex]) {
+                // Remove the current edge because its source vertices set does not contain the parameter vertex
+                [edges removeObject:e];
+            }
+        }
+    }
+    
+    // Fourth return the remaining edges which do conform with the specification
+    return [edges allObjects];
+    
+} // forwardStar()
+
 - (NSArray *)findEdgesWithSourceVertex:(Vertex *)source
 {
     

@@ -41,6 +41,9 @@
 - (DirectedHyperEdge *)addEdgeWithSourceVertices:(NSArray *)source withTargetVertex:(Vertex *)target;
 - (DirectedHyperEdge *)addEdgeWithSourceVertices:(NSArray *)source withTargetVertices:(NSArray *)target;
 
+- (NSArray *)backwardStar:(Vertex *)vertex;
+- (NSArray *)forwardStar:(Vertex *)vertex;
+
 - (NSArray *)findEdgesWithSourceVertex:(Vertex *)source;
 - (NSArray *)findEdgesWithSourceVertices:(NSArray *)source;
 - (NSArray *)findEdgesWithTargetVertex:(Vertex *)target;
