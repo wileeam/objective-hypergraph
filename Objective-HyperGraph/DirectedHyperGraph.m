@@ -103,6 +103,56 @@
 
 } // addEdgeWithSourceVertices()
 
+- (NSArray *)getPredecessors:(Vertex *)vertex
+{
+
+    if (vertex == nil) {
+        return nil;
+    }
+
+    NSMutableSet *predecessors = [NSMutableSet set];
+    
+    NSArray *incomingEdges = [self getIncomingEdges:vertex];
+    for (DirectedHyperEdge *e in incomingEdges) {
+        [predecessors unionSet:[e getSourceVertices]];
+    }
+    
+    return [predecessors allObjects];
+    
+} // getPredecessors()
+
+- (NSArray *)getSuccessors:(Vertex *)vertex
+{
+
+    if (vertex == nil) {
+        return nil;
+    }
+    
+    NSMutableSet *successors = [NSMutableSet set];
+
+    NSArray *outgoingEdges = [self getOutgoingEdges:vertex];    
+    for (DirectedHyperEdge *e in outgoingEdges) {
+        [successors unionSet:[e getTargetVertices]];
+    }
+    
+    return [successors allObjects];
+    
+} // getSuccessors()
+
+- (NSArray *)getIncomingEdges:(Vertex *)vertex
+{
+    
+    return [self findEdgesWithTargetVertex:vertex];
+    
+} // getIncomingEdges()
+
+- (NSArray *)getOutgoingEdges:(Vertex *)vertex
+{
+    
+    return [self findEdgesWithSourceVertex:vertex];
+    
+} // getOutgoingEdges()
+
 - (NSArray *)backwardStar:(Vertex *)vertex
 {
     
@@ -299,6 +349,36 @@
     return [edgesWithSourceVerticesSet allObjects];
     
 } // findEdgesWithSourceVertices()
+
+- (BOOL)isFHyperGraph
+{
+    
+    NSArray *edges = [self getEdges];
+    
+    for (DirectedHyperEdge *e in edges) {
+        if ( [e countSourceVertices] != 1 ) {
+            return FALSE;
+        }
+    }
+            
+    return TRUE;
+    
+} // isFHyperGraph()
+
+- (BOOL)isBHyperGraph
+{
+
+    NSArray *edges = [self getEdges];
+    
+    for (DirectedHyperEdge *e in edges) {
+        if ( [e countTargetVertices] != 1 ) {
+            return FALSE;
+        }
+    }
+
+    return TRUE;
+    
+} // isBHyperGraph()
 
 #pragma mark - HyperEdge protocol overriden implementation
 

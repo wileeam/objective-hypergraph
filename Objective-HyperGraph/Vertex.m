@@ -52,6 +52,12 @@
     
 } // init()
 
++ (Vertex *)vertex
+{
+    
+    return [[Vertex alloc] init];
+
+} // vertex()
 
 #pragma mark - System overriden implementation
 
@@ -93,9 +99,9 @@
         return FALSE;
     }    
     
-    Vertex *otherVertex = (Vertex *) object;
+    Vertex *other = (Vertex *) object;
     
-    return self.uuid == otherVertex.uuid;
+    return self.uuid == other.uuid;
     
 } // isEqual()
 

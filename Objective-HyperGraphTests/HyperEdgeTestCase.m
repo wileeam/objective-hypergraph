@@ -27,6 +27,7 @@
  *
  */
 
+
 #import "HyperEdgeTestCase.h"
 
 
@@ -35,22 +36,41 @@
 
 @implementation HyperEdgeTestCase
 
-- (void)testHyperEdge
+- (void)setUp
 {
-    
-    NSMutableArray *vertices = [NSMutableArray arrayWithCapacity:(rand() % VERTICES_MAX) + VERTICES_MIN];
-    
-    for (NSUInteger i = 0; i < [vertices count]; i++) {
-        Vertex *vertex = [[Vertex alloc] init];
-        [vertices insertObject:vertex atIndex:i];
-    }
+    [super setUp];
     
     edge = [[HyperEdge alloc] init];
+
+} // setUp()
+
+- (void)tearDown
+{
+    // Tear-down code here.
+    
+    [super tearDown];
+
+} // tearDown()
+
+- (void)testHyperEdgeSize
+{
+    
+    NSLog(@"%@ start", self.name);
+    
+    NSMutableArray *vertices = [NSMutableArray arrayWithCapacity:(rand() % VERTICES_MAX) + VERTICES_MIN];
+        
+    for (NSUInteger i = 0; i < [vertices count]; i++) {
+        Vertex *vertex = [[Vertex alloc] init];
+        //Vertex *vertex = [Vertex vertex];
+        [vertices insertObject:vertex atIndex:i];
+    }
     
     [edge addVertices:vertices];
     
     STAssertTrue([[edge getVertices] count] == [vertices count], @"HyperEdge size should have been %d but it was %d instead", [vertices count], [[edge getVertices] count]);
 
+    NSLog(@"%@ end", self.name);    
+    
 } // testHyperEdge()
 
 @end

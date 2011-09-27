@@ -77,6 +77,9 @@
 - (NSUInteger)countSourceVertices;
 - (NSUInteger)countTargetVertices;
 
+- (BOOL)isBArc;
+- (BOOL)isFArc;
+
 - (BOOL)isEqual:(id)object;
 
 @end

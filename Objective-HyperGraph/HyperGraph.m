@@ -641,8 +641,52 @@
     // TODO: Make the implementation fully multigraph-compliant
     // Current implementation does check for duplicate edges, and so by definiton a multigraph is not possible
     // But it is interesting to note that implementation is semi-ready (so it has to be revised to be fully compliant)
-    return FALSE;
+    NSArray *edges = [self getEdges];
     
+    for (HyperEdge *e in edges) {
+        for (HyperEdge *ee in [self getEdges]) {
+            if ([e isEqual:ee]) {
+                return TRUE; 
+            }                
+        }
+    }
+    
+    return FALSE;
+
 } // isMultiGraph()
+
+/*
+ * A hyper-graph is simple if all edges are distinct
+ */
+- (BOOL)isSimple
+{
+    
+    return ![self isMultiGraph];
+} // isSimple()
+
+/*
+ * A hyper-graph is k-uniform if all edges contain exactly k vertices
+ * Therefore, an undirected graph can also be named as a 2-uniform hyper-graph
+ */
+- (BOOL)isKUniform
+{
+    
+    if ([self countEdges] == 0) {
+        return TRUE;
+    }
+    
+    NSArray *edges = [self getEdges];
+    
+    NSUInteger k = [[edges objectAtIndex:0] countVertices];
+    
+    for (HyperEdge *e in edges) {
+        if ([e countVertices] != k) {
+            return FALSE;
+        }
+    }
+    
+    return TRUE;
+    
+} // isKUniform()
 
 @end

@@ -643,6 +643,21 @@
     
 } // countTargetVertices()
 
+- (BOOL)isBArc
+{
+
+    return [self countTargetVertices] == 1;
+    
+} // isBArc()
+
+
+- (BOOL)isFArc
+{
+    
+    return [self countSourceVertices] == 1;    
+    
+} // isFArc()
+
 - (BOOL)isEqual:(id)object
 {
     

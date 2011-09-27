@@ -41,6 +41,12 @@
 - (DirectedHyperEdge *)addEdgeWithSourceVertices:(NSArray *)source withTargetVertex:(Vertex *)target;
 - (DirectedHyperEdge *)addEdgeWithSourceVertices:(NSArray *)source withTargetVertices:(NSArray *)target;
 
+- (NSArray *)getPredecessors:(Vertex *)vertex;
+- (NSArray *)getSuccessors:(Vertex *)vertex;
+
+- (NSArray *)getIncomingEdges:(Vertex *)vertex;
+- (NSArray *)getOutgoingEdges:(Vertex *)vertex;
+
 - (NSArray *)backwardStar:(Vertex *)vertex;
 - (NSArray *)forwardStar:(Vertex *)vertex;
 
@@ -53,6 +59,9 @@
 - (NSArray *)findEdgesWithSourceVertex:(Vertex *)source withTargetVertices:(NSArray *)target;
 - (NSArray *)findEdgesWithSourceVertices:(NSArray *)source withTargetVertex:(Vertex *)target;
 - (NSArray *)findEdgesWithSourceVertices:(NSArray *)source withTargetVertices:(NSArray *)target;
+
+- (BOOL)isFHyperGraph;
+- (BOOL)isBHyperGraph;
 
 //- (BOOL)isEqual:(id)object;
 

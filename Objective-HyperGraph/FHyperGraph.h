@@ -1,5 +1,5 @@
 /*
- * Vertex.h
+ * FHyperGraph.h
  *
  * Copyright (C) 2011, Guillermo Rodriguez-Cano
  * All rights reserved.
@@ -31,31 +31,9 @@
 #import <Foundation/Foundation.h>
 
 #import "NSString+UUID.h"
-#import "VertexProtocol.h"
+#import "DirectedHyperGraph.h"
 
 
-/*
- * Simple vertex/node representation class
- *
- * If not inheriting from this class, implementing the protocol should be
- * mandatory
- */
-@interface Vertex : NSObject <VertexProtocol, NSCopying> {
+@interface FHyperGraph : DirectedHyperGraph
 
-} // Vertex{}
-
-#pragma mark - Properties
-/*
- * Returns unique string identifier 
- *
- * @see NSString (UUID)
- */
-@property (nonatomic, readonly, strong) NSString *uuid;
-/*
- * Returns a short identifying name
- */
-@property (nonatomic, strong) NSString *name;
-
-#pragma mark - Methods
-+ (Vertex *)vertex;
 @end

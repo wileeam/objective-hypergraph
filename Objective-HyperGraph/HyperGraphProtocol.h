@@ -76,5 +76,7 @@
 - (NSUInteger)countEdges;
 
 - (BOOL)isMultiGraph;
+- (BOOL)isSimple;
+- (BOOL)isKUniform;
 
 @end
